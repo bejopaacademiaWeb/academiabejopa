@@ -1,0 +1,153 @@
+<!-- sobre-nosotros.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Sobre Nosotros</title>
+  <link rel="icon" href="multimedia\iconweb.png" />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="app">
+    <!-- COPIA exacta del aside.sidebar -->
+    <aside class="sidebar" aria-label="Navegación principal">
+      <div class="sidebar__logo">
+        <img src="multimedia\logo.png" alt="Logo" />
+      </div>
+      <nav class="sidebar__nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-key="inicio">Inicio</a></li>
+          <li><a href="estudios.html" class="nav-link" data-key="estudios">Estudios</a></li>
+          <li><a href="actividades.html" class="nav-link" data-key="actividades">Actividades</a></li>
+          <li><a href="sobre-nosotros.html" class="nav-link" data-key="sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="contacto.html" class="nav-link" data-key="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <small>© <span id="year"></span> Academia Bejopa</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main" tabindex="-1">
+      <header class="page-header">
+        <h1>Sobre Nosotros</h1>
+      </header>
+
+      <section class="content-grid">
+        <article class="card about-card">
+          <h2>Nuestra misión</h2>
+
+          <div class="about-text">
+            <p>
+              En Academia Bejopa trabajamos cada día con una idea muy clara: ayudar a cada estudiante a descubrir su verdadero potencial. Nuestra misión es ofrecer un acompañamiento académico cercano, personalizado y eficaz, que no solo mejore sus resultados, sino también su confianza, su autonomía y su forma de enfrentarse a los retos del Bachillerato.
+            </p>
+
+            <p>
+              Creemos en una educación que se adapta a las personas, no al revés. Por eso diseñamos un entorno donde cada alumno se siente escuchado, comprendido y acompañado por profesionales que realmente se implican en su progreso. Nuestro objetivo es que cada estudiante avance con seguridad, entienda lo que estudia y aprenda a construir su propio camino hacia el éxito académico.
+            </p>
+
+            <p>
+              En Bejopa no solo reforzamos asignaturas: reforzamos motivaciones, hábitos y habilidades que les servirán toda la vida. Porque cuando un alumno se siente capaz, todo cambia.
+            </p>
+          </div>
+        </article>
+        <article class="card team-card">
+          <h2>Equipo</h2>
+
+          <div class="team-filter">
+            <button class="filter-btn active" data-category="profesores">Profesores</button>
+            <button class="filter-btn" data-category="marketing">Marketing</button>
+          </div>
+
+          <div class="team-container">
+
+            <div class="team-group" data-category="profesores">
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/profesores/profeH.jpeg" alt="Profesor 1">
+                </div>
+                <h3>José Miguel Esporrín</h3>
+                <p>Matemáticas</p>
+              </div>
+
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/profesores/profeM.png" alt="Profesor 2">
+                </div>
+                <h3>Paula Patricia Gómez</h3>
+                <p>Lengua</p>
+              </div>
+            </div>
+
+            <div class="team-group" data-category="marketing" style="display:none;">
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/marketing/miriam.png" alt="Marketing 1">
+                </div>
+                <h3>Miriam Pinilla Alvarez</h3>
+                <p>Creadora de contenido</p>
+              </div>
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/marketing/javi.png" alt="Marketing 1">
+                </div>
+                <h3>Javier Valls</h3>
+                <p>Diseñador Web</p>
+              </div>
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/marketing/elsa.png" alt="Marketing 1">
+                </div>
+                <h3>Elsa Lázaro</h3>
+                <p>Community Manager</p>
+              </div>
+              <div class="team-member">
+                <div class="team-photo">
+                  <img src="multimedia/marketing/carol.png" alt="Marketing 1">
+                </div>
+                <h3>Carolina faber</h3>
+                <p>Gestora de blog</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const links = document.querySelectorAll('.nav-link');
+      const path = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path) a.classList.add('active');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const groups = document.querySelectorAll('.team-group');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+
+        // Activar botón
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        // Mostrar grupo correspondiente
+        groups.forEach(group => {
+          group.style.display = group.dataset.category === category ? 'grid' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

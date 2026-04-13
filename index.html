@@ -1,0 +1,112 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Academia BEJOPA en Huesca. Refuerzo académico, presentaciones profesionales y diseño de contenidos digitales.">
+  <meta name="keywords" content="academia, refuerzo académico, Huesca, presentaciones, diseño digital">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta property="og:title" content="Academia BEJOPA">
+  <meta property="og:description" content="Refuerzo académico y diseño digital en Huesca.">
+  <meta property="og:image" content="multimedia\iconweb.png">
+  <meta property="og:type" content="website">
+
+  <title>Academia Bejopa</title>
+  <link rel="icon" href="multimedia\iconweb.png" />
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar lateral fijo: COPIAR exactamente en cada página -->
+    <aside class="sidebar" aria-label="Navegación principal">
+      <!-- Logo centrado arriba -->
+      <div class="sidebar__logo">
+        <img src="multimedia\logo.png" alt="Logo" />
+      </div>
+
+      <!-- Menú vertical -->
+      <nav class="sidebar__nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-key="inicio">Inicio</a></li>
+          <li><a href="estudios.html" class="nav-link" data-key="estudios">Estudios</a></li>
+          <li><a href="actividades.html" class="nav-link" data-key="actividades">Actividades</a></li>
+          <li><a href="sobre-nosotros.html" class="nav-link" data-key="sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="contacto.html" class="nav-link" data-key="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Pie del sidebar -->
+      <div class="sidebar__footer">
+        <small>© <span id="year"></span> Academia Bejopa</small>
+      </div>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="main-content" id="main" tabindex="-1">
+      <header class="page-header">
+        <h1>Inicio</h1>
+      </header>
+
+      <section class="content-grid">
+        <article class="card">
+          <h2>Nuestra misión en Bejopa</h2>
+          <p>
+            En Bejopa trabajamos para que cada estudiante avance no solo en sus resultados académicos, sino también en su desarrollo personal y en su manera de relacionarse con el aprendizaje. Nuestro propósito es ofrecer un acompañamiento cercano y eficaz que ayude a los alumnos de primaria, secundaria y bachillerato a comprender mejor las materias, ganar confianza y descubrir que aprender puede ser una experiencia enriquecedora.
+          </p>
+          <br>
+          <p>
+            Queremos que los estudiantes entiendan que las asignaturas no son únicamente contenidos que memorizar, sino herramientas que les permiten interpretar y comprender el mundo. Por eso, fomentamos la curiosidad, el razonamiento y la comprensión profunda, ayudándoles a descubrir el sentido de lo que estudian y a desarrollar hábitos de estudio sólidos y duraderos.
+          </p>
+          <br>
+          <p>
+            En Bejopa ofrecemos un entorno de apoyo donde cada alumno puede avanzar a su ritmo, resolver dudas con tranquilidad y adquirir estrategias que le servirán tanto en su etapa escolar como en su futuro académico. Nuestra misión es que cada estudiante crezca, mejore y aprenda con sentido, construyendo una base sólida para su presente y su futuro.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2></h2>
+          <img src="multimedia\footpage.jpg" alt="Logo" width="475" height="675"/>
+        </article>
+        </section>
+      <section class="ventajas">
+        <div class="ventaja-card">
+          <h3>Experiencia</h3>
+          <p>Llevamos años ayudando a nuestros alumnos a mejorar sus resultados y sus métodos de estudio.</p>
+        </div>
+
+        <div class="ventaja-card">
+          <h3>Grupos amplios</h3>
+          <p>Trato más personalizado para un mayor rendimiento.</p>
+        </div>
+
+        <div class="ventaja-card">
+          <h3>Flexibilidad</h3>
+          <p>Disponemos de múltiples horarios para que cada alumno pueda compaginar sus clases con su día a día.</p>
+        </div>
+
+        <div class="ventaja-card">
+          <h3>Atención personalizada</h3>
+          <p>Conocer a cada alumno nos permite adaptarnos a sus necesidades y potenciar su progreso.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Script para marcar enlace activo y año -->
+  <script>
+    (function () {
+      const links = document.querySelectorAll('.nav-link');
+      const path = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path) a.classList.add('active');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!-- contacto.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contacto</title>
+  <link rel="icon" href="multimedia\iconweb.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- COPIA exacta del aside.sidebar -->
+    <aside class="sidebar" aria-label="Navegación principal">
+      <div class="sidebar__logo">
+        <img src="multimedia\logo.png" alt="Logo" />
+      </div>
+      <nav class="sidebar__nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-key="inicio">Inicio</a></li>
+          <li><a href="estudios.html" class="nav-link" data-key="estudios">Estudios</a></li>
+          <li><a href="actividades.html" class="nav-link" data-key="actividades">Actividades</a></li>
+          <li><a href="sobre-nosotros.html" class="nav-link" data-key="sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="contacto.html" class="nav-link" data-key="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <small>© <span id="year"></span> Academia Bejopa</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main" tabindex="-1">
+      <header class="page-header">
+        <h1>Contacto</h1>
+      </header>
+
+      <section class="content-grid">
+        <article class="card contact-card">
+          <h2>Escríbenos</h2>
+          <p>Estamos aquí para ayudarte. Puedes contactarnos por email o seguirnos en nuestras redes sociales.</p>
+
+          <div class="contact-info">
+
+            <div class="contact-item">
+              <span class="contact-icon">📧</span>
+              <a href="mailto:bejopaclases@gmail.com" class="contact-link">
+                bejopaacademia@gmail.com
+              </a>
+            </div>
+            <div class="contact-item phone-item">
+              <span class="contact-icon">📞</span>
+              <a href="tel:686011513" class="contact-link phone-link">
+                686 01 15 13
+              </a>
+            </div>
+          </div>
+
+          <div class="social-buttons">
+            <a href="https://www.instagram.com/bejopa_academia" target="_blank" class="btn-social instagram">Instagram</a>
+            <a href="https://linktr.ee/bejopaacademia" target="_blank" class="btn-social tiktok">TikTok</a>
+            <a href="https://www.youtube.com/@BejopaAcademia-z8s" target="_blank" class="btn-social youtube">YouTube</a>
+          </div>
+        </article>
+
+
+
+        <article class="card">
+          <h2>Ubicación</h2>
+          <p>Nos encontramos en Huesca!</p>
+          <p>C. Benabarre, 1, 22001 Huesca</p>
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2849.548993367129!2d-0.408!3d42.136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60a1e3a1f1e3a1%3A0x0000000000000000!2sAcademia!5e0!3m2!1ses!2ses!4v0000000000000"
+              width="100%"
+              height="300"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </article>
+
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const links = document.querySelectorAll('.nav-link');
+      const path = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path) a.classList.add('active');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>

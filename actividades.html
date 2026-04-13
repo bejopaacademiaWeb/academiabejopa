@@ -1,0 +1,67 @@
+<!-- actividades.html -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Actividades</title>
+  <link rel="icon" href="multimedia\iconweb.png" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <!-- COPIA exacta del aside.sidebar -->
+    <aside class="sidebar" aria-label="Navegación principal">
+      <div class="sidebar__logo">
+        <img src="c:\Users\javie\Documents\UNI\2º\Segundo\Bejopa\multimedia\logo.png" alt="Logo" />
+      </div>
+      <nav class="sidebar__nav" role="navigation" aria-label="Menú principal">
+        <ul>
+          <li><a href="index.html" class="nav-link" data-key="inicio">Inicio</a></li>
+          <li><a href="estudios.html" class="nav-link" data-key="estudios">Estudios</a></li>
+          <li><a href="actividades.html" class="nav-link" data-key="actividades">Actividades</a></li>
+          <li><a href="sobre-nosotros.html" class="nav-link" data-key="sobre-nosotros">Sobre Nosotros</a></li>
+          <li><a href="contacto.html" class="nav-link" data-key="contacto">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar__footer">
+        <small>© <span id="year"></span> Academia Bejopa</small>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main" tabindex="-1">
+      <header class="page-header">
+        <h1>Actividades</h1>
+      </header>
+
+      <section class="content-grid">
+        <article class="card">
+  <div class="video-wrapper">
+    <div class="video-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/0f6mT9cKXjU"
+    title="BejopaVid"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+  </div>
+</article>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const links = document.querySelectorAll('.nav-link');
+      const path = location.pathname.split('/').pop() || 'index.html';
+      links.forEach(a => {
+        const href = a.getAttribute('href');
+        if (href === path) a.classList.add('active');
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
